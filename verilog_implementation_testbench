@@ -1,0 +1,46 @@
+module testbench;
+
+	// Inputs
+	reg [2:0] S;
+
+	// Outputs
+	wire A1;
+	wire A2;
+	wire B1;
+	wire B2;
+	wire C1;
+	wire C2;
+	wire D1;
+	wire D2;
+
+	// Instantiate the Unit Under Test (UUT)
+	rp uut (
+		.S(S),
+		.A1(A1), 
+		.A2(A2), 
+		.B1(B1), 
+		.B2(B2), 
+		.C1(C1), 
+		.C2(C2), 
+		.D1(D1), 
+		.D2(D2)
+	);
+
+	initial begin
+		// Initialize Inputs
+		S[2] = 0;S[1] = 0; S[0]= 0; #50;
+		S[2] = 0;S[1] = 0; S[0]= 1; #50;
+		S[2] = 0;S[1] = 1; S[0]= 0; #50;
+		S[2] = 0;S[1] = 1; S[0]= 1; #50;
+		S[2] = 1;S[1] = 0; S[0]= 0; #50;
+		S[2] = 1;S[1] = 0; S[0]= 1; #50;
+		S[2] = 1;S[1] = 1; S[0]= 0; #50;
+		S[2] = 1;S[1] = 1; S[0]= 1; #50;
+		
+		
+
+		// Wait 100 ns for global reset to finish
+		#50;
+		// Add stimulus here
+end
+endmodule
